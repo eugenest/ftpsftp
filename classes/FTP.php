@@ -2,7 +2,7 @@
 
 namespace FileTransfer;
 
-class FTP
+class FTP implements ConnectionInterface
 {
     protected $connection;
     
