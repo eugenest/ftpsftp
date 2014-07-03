@@ -20,6 +20,6 @@ class Factory
         }
         $className = $this->typeList[$type];
 
-        return new $className();
+        return new $className($user, $pass, $hostname, $port);
     }
 }
