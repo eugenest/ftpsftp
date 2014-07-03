@@ -62,15 +62,15 @@ class FTP implements ConnectionInterface
             throw new \InvalidArgumentException('$command should be a string');
         }
         if (!ftp_exec($this->connection, $command)){
-            throw new \Exception("Couldn't execute command $path");
+            throw new \Exception("Couldn't execute command $command");
         }
     }
     
     public function close(){
-        $currentPath = ftp_close($this->connection);
-        if (!$currentPath) {
+        $closeResult = ftp_close($this->connection);
+        if (!$closeResult) {
             throw new \Exception("Cannot read current directory");
         }
-        return $currentPath;
+        return $closeResult;
     }
 }
